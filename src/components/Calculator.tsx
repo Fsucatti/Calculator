@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
@@ -18,28 +17,28 @@ export default function Calculator() {
 }
 
 const buttons: ButtonInfo[] = [
-  { label: "C", variant: "clear" },
-  { label: "÷", variant: "operator" },
-  { label: "×", variant: "operator" },
-  { label: "-", variant: "operator" },
+      { label: "C", variant: "clear" },
+      { label: "÷", variant: "operator" },
+      { label: "×", variant: "operator" },
+      { label: "-", variant: "operator" },
 
-  { label: "7" },
-  { label: "8" },
-  { label: "9" },
-  { label: "+", variant: "operator" },
+      { label: "7" },
+      { label: "8" },
+      { label: "9" },
+      { label: "+", variant: "operator" },
 
-  { label: "4" },
-  { label: "5" },
-  { label: "6" },
-  { label: "=", variant: "operator" },
+      { label: "4" },
+      { label: "5" },
+      { label: "6" },
+      { label: "=", variant: "operator" },
 
-  { label: "1" },
-  { label: "2" },
-  { label: "3" },
-  { label: ".", variant: "operator" },
+      { label: "1" },
+      { label: "2" },
+      { label: "3" },
+      { label: ".", variant: "operator" },
 
-  { label: "0", span: 2 } // spans 2 columns
-]
+      { label: "0", span: 2 } // spans 2 columns
+    ]
 
 
   const isOperator = (btn: string) => ["÷", "×", "-", "+", "="].includes(btn)
@@ -176,23 +175,23 @@ const buttons: ButtonInfo[] = [
 
       {/* Keypad */}
       <div className="grid grid-cols-4 gap-2">
-  {buttons.map((btn) => (
-    <motion.button
-      key={btn.label}
-      onClick={() => handleClick(btn.label)}
-      whileHover={{ scale: 1.05, boxShadow: "0px 0px 12px rgba(34,211,238,0.5)" }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`py-3 rounded-md border uppercase font-semibold transition-colors
-        ${btn.variant === "clear" ? "bg-red-700/50 border-red-500 text-red-200 hover:bg-red-600/60" : ""}
-        ${btn.variant === "operator" ? "bg-cyan-900/40 border-cyan-400 text-cyan-200 hover:bg-cyan-700/50" : ""}
-        ${!btn.variant ? "bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700" : ""}
-        ${btn.span ? `col-span-${btn.span}` : ""}`}
-    >
-      {btn.label}
-    </motion.button>
-  ))}
-</div>
+          {buttons.map((btn) => (
+            <motion.button
+              key={btn.label}
+              onClick={() => handleClick(btn.label)}
+              whileHover={{ scale: 1.05, boxShadow: "0px 0px 12px rgba(34,211,238,0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`py-3 rounded-md border uppercase font-semibold transition-colors
+                ${btn.variant === "clear" ? "bg-red-700/50 border-red-500 text-red-200 hover:bg-red-600/60" : ""}
+                ${btn.variant === "operator" ? "bg-cyan-900/40 border-cyan-400 text-cyan-200 hover:bg-cyan-700/50" : ""}
+                ${!btn.variant ? "bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700" : ""}
+                ${btn.span ? `col-span-${btn.span}` : ""}`}
+            >
+              {btn.label}
+            </motion.button>
+          ))}
+        </div>
 
 
       {/* Programmer Mode Toggle */}
