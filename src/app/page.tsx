@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Calculator from "../components/Calculator"
+import ProjectFooter, { BackToPortfolio } from "../components/ProjectFooter"
 
 export default function HomePage() {
   const [offset, setOffset] = useState(0)
@@ -22,8 +23,8 @@ export default function HomePage() {
   }, [])
 
   return (
-    <main
-      className="min-h-screen flex items-center justify-center bg-slate-900 text-white antialiased"
+    <div
+      className="min-h-screen flex flex-col bg-slate-900 text-white antialiased"
       style={{
         backgroundImage: `
           linear-gradient(to right, rgba(34,211,238,${pulse}) 1px, transparent 1px),
@@ -33,7 +34,13 @@ export default function HomePage() {
         backgroundPosition: `${offset}px ${offset}px`,
       }}
     >
-      <Calculator />
-    </main>
+      <header className="p-4">
+        <BackToPortfolio />
+      </header>
+      <main className="flex flex-1 items-center justify-center px-4 pb-8">
+        <Calculator />
+      </main>
+      <ProjectFooter />
+    </div>
   )
 }
