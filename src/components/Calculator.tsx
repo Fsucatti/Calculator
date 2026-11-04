@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { evaluate } from "@/lib/evaluate"
 
 export default function Calculator() {
   const [display, setDisplay] = useState("0")
@@ -97,8 +98,7 @@ const buttons: ButtonInfo[] = [
   // --- Calculate result ---
   const calculateResult = () => {
     try {
-      const sanitized = expression.replace(/×/g, "*").replace(/÷/g, "/")
-      const result = Function(`return ${sanitized}`)()
+      const result = evaluate(expression)
       setDisplay(result.toString())
       setExpression(result.toString())
       setHistory((prev) => [expression + " = " + result, ...prev].slice(0, 10))
@@ -186,7 +186,7 @@ const buttons: ButtonInfo[] = [
                 ${btn.variant === "clear" ? "bg-red-700/50 border-red-500 text-red-200 hover:bg-red-600/60" : ""}
                 ${btn.variant === "operator" ? "bg-cyan-900/40 border-cyan-400 text-cyan-200 hover:bg-cyan-700/50" : ""}
                 ${!btn.variant ? "bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700" : ""}
-                ${btn.span ? `col-span-${btn.span}` : ""}`}
+                ${btn.span === 2 ? "col-span-2" : ""}`}
             >
               {btn.label}
             </motion.button>
