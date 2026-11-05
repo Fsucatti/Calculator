@@ -1,36 +1,21 @@
 # Calculator App
 
-A calculator with keyboard input, memory, history, and a programmer mode that shows binary and hexadecimal. Built with Next.js, Framer Motion, and Tailwind CSS, and published as a static site on Cloudflare Workers.
+A calculator with keyboard input, memory, history, and a programmer mode that shows binary and hexadecimal.
+
+**Built with:** Next.js, Framer Motion and Tailwind CSS.
 
 ## Run it locally
 
-You need Node 22. `next build` can fail on Node 26 with a webpack hashing error.
+You need Node 22. `next build` can fail on Node 26.
 
 ```bash
 npm install
 npm run dev
 ```
 
-To try the static build the way Cloudflare serves it:
-
-```bash
-npm run build
-npm run preview
-```
-
-## Deploy
-
-Sign in once with `npx wrangler login`, then run:
-
-```bash
-npm run deploy
-```
-
-Configuration is in `wrangler.jsonc`. Security headers are in `public/_headers`.
-
 ## Change things
 
 | To change | Edit |
 |---|---|
-| Buttons, layout, and memory | `src/components/Calculator.tsx` |
+| Buttons, layout and memory | `src/components/Calculator.tsx` |
 | How expressions are calculated | `src/lib/evaluate.ts` |
