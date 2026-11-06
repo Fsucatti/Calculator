@@ -13,6 +13,12 @@ npm install
 npm run dev
 ```
 
+To run the tests:
+
+```bash
+npm test
+```
+
 ## Change things
 
 | To change | Edit |
